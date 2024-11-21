@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Phones task</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Phones Task</h1>
+        <div class="panels">
+            <div class="left-panel">
+                <h1>Control Panel</h1>
+                <form>
+                    <div class="input-wrapper">
+                        <label for="type-selection">Phone Type : </label>
+                        <select name="phone-type" id="type-selection">
+                            <option value="no-option" selected>-- no selection --</option>
+                            <option value="cellPhone">Cell Phones</option>
+                            <option value="smartPhone">Smart Phones</option>
+                            <option value="androidPhone">Android Phones</option>
+                            <option value="iPhone">IPhone</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-selection">Phone : </label>
+                        <select name="phone" id="phone-selection" disabled>
+                            <option value="" selected>-- no selection --</option>
+                            <option value="">Create new Phone</option>
+                            <!-- <option value="">Smart Phones</option>
+                            <option value="">Android Phones</option>
+                            <option value="">IPhone</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="action-selection">Actions : </label>
+                        <select name="action" id="action-selection" disabled>
+                            <option value="" selected>-- no selection --</option>
+                        </select>
+                    </div>
+                    <!-- <div class="input-wrapper">
+                        <input type="submit" value="Submit" id="submit-btn">
+                    </div> -->
+                </form>
+            </div>
+            <div class="right-panel">
+                <h1>Action Panel</h1>
+                <!-- CELL PHONE FEATURES-->
+                <form id="create-cell-phone">
+                    <h1 class="input-wrapper">New Cell Phone :-</h1>
+                    <div class="input-wrapper">
+                        <label for="phone-name-1">Name* : </label>
+                        <input type="text" name="name" id="phone-name-1" placeholder="Name of Phone" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-storage-1">Storage Capacity* : </label>
+                        <input type="number" name="storage" id="phone-storage-1" max="1024" min="2" placeholder="Storage capacity in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-battery-4">Battery Capacity* : </label>
+                        <input type="number" name="battery" id="phone-battery-4" min="1000" max="5000" placeholder="Battery capacity in mAh" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-camera-1">Camera Quality* : </label>
+                        <input type="number" name="camera" id="phone-camera-1" max="200" min="2" placeholder="Camera Quality in MP" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-1">SIM Number* : </label>
+                        <input type="number" name="sim" id="phone-sim-1" min="1000000000" max="9999999999" placeholder="SIM - I number" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Create new cell Phone">
+                    </div>            
+                </form>
+                <form id="cellPhoneDetails">
+                    <h1 class="input-wrapper">Cell Phone Details :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View Details">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Specification</th>
+                                    <th>Details</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="makeVoiceCall">
+                    <h1 class="input-wrapper">Make Voice Call :-</h1>
+                    <div class="input-wrapper">
+                        <label for="receiver-number-1">Receiver Number* : </label>
+                        <input 
+                            type="number" 
+                            name="receiver-number" 
+                            id="receiver-number-1" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="Number of Reciever" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="call-message-1">Call Message* : </label>
+                        <textarea name="message" id="call-message-1" placeholder="Call Message" required></textarea>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="sim-preference-1">SIM Preference : </label>
+                        <select name="sim-preference" id="sim-preference-1">
+                            <option value="1">SIM - 1</option>
+                            <option value="2">SIM - 2</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Make Phone Call">
+                    </div> 
+                </form>
+                <form id="sendTextMessage">
+                    <h1 class="input-wrapper">Send Text Message :-</h1>
+                    <div class="input-wrapper">
+                        <label for="receiver-number-2">Receiver Number* : </label>
+                        <input 
+                            type="number" 
+                            name="receiver-number" 
+                            id="receiver-number-2" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="Number of Reciever" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="call-message-2">Text Message* : </label>
+                        <textarea name="message" id="call-message-2" placeholder="Message to be sent" required></textarea>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="sim-preference-2">SIM Preference : </label>
+                        <select name="sim-preference" id="sim-preference-2">
+                            <option value="1">SIM - 1</option>
+                            <option value="2">SIM - 2</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Send Text Message">
+                    </div> 
+                </form>
+                <form id="changeSimNumber">
+                    <h1 class="input-wrapper">Change SIM - I Number :-</h1>
+                    <div class="input-wrapper">
+                        <label for="receiver-number-3">New SIM - I Number* : </label>
+                        <input 
+                            type="number" 
+                            name="receiver-number" 
+                            id="receiver-number-3" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="New SIM Number" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Change SIM number">
+                    </div> 
+                </form>
+                <form id="addContact">
+                    <h1 class="input-wrapper">Add Contact :-</h1>
+                    <div class="input-wrapper">
+                        <label for="contact-name-1">Contact Name* : </label>
+                        <input type="text" name="contact-name" id="contact-name-1" placeholder="Name of contact" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="contact-number">Contact Number* : </label>
+                        <input 
+                            type="number" 
+                            name="contact-number" 
+                            id="contact-number" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="Number of contact" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Add Contact">
+                    </div> 
+                </form>
+                <form id="viewAllVoiceCallRecord">
+                    <h1 class="input-wrapper">All Call records :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View All Call Records">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>From Number</th>
+                                    <th>To Number</th>
+                                    <th>Call Record</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="viewAllMessageRecord">
+                    <h1 class="input-wrapper">All Message records :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View All Message Records">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>From Number</th>
+                                    <th>To Number</th>
+                                    <th>Message</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="viewAllContacts">
+                    <h1 class="input-wrapper">Contacts :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View All Contacts">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Contact Name</th>
+                                    <th>Contact Number</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="getContact">
+                    <h1 class="input-wrapper">Search Contacts :-</h1>
+                    <div class="input-wrapper">
+                        <label for="contact-name-2">Contact Name* : </label>
+                        <input type="text" name="contact-name" id="contact-name-2" placeholder="Name of contact" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Search Contact">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Contact Name</th>
+                                    <th>Contact Number</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="updateContact">
+                    <h1 class="input-wrapper">Update Contact :-</h1>
+                    <div class="input-wrapper">
+                        <label for="curr-name">Contact Name (to be updated)* : </label>
+                        <input 
+                            type="text" 
+                            name="curr-name" 
+                            id="curr-name" 
+                            placeholder="Name to be updated" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="new-number">New Contact Number* : </label>
+                        <input 
+                            type="number" 
+                            name="new-number" 
+                            id="new-number" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="New Number" 
+                            required>
+                    </div>                    
+                    <div class="input-wrapper">
+                        <label for="new-name">New Contact Name : </label>
+                        <input 
+                            type="text" 
+                            name="new-name" 
+                            id="new-name" 
+                            placeholder="New Contact Name">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Update contact">
+                    </div> 
+                </form>
+                <form id="deleteContact">
+                    <h1 class="input-wrapper">Delete Contact :-</h1>                  
+                    <div class="input-wrapper">
+                        <label for="delete-name">Contact Name (to be deleted)*: </label>
+                        <input 
+                            type="text" 
+                            name="delete-name" 
+                            id="delete-name" 
+                            placeholder="Contact Name to be deleted"
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Delete Contact">
+                    </div> 
+                </form>
+                <form id="featureNotAvailable">
+                    <div class="input-wrapper">
+                        <h1>This featuere is not yet available</h1>
+                    </div>
+                </form>
+
+                <!-- SMART PHONE FEATURES-->
+                <form id="create-smart-phone">
+                    <h1 class="input-wrapper">New Smart Phone :-</h1>
+                    <div class="input-wrapper">
+                        <label for="phone-name-2">Name* : </label>
+                        <input type="text" name="name" id="phone-name-2" placeholder="Name of Phone" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-storage-2">Storage Capacity* : </label>
+                        <input type="number" name="storage" id="phone-storage-2" max="1024" min="2" placeholder="Storage capacity in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-battery-1">Battery Capacity* : </label>
+                        <input type="number" name="battery" id="phone-battery-1" min="1000" max="5000" placeholder="Battery capacity in mAh" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-camera-2">Camera Quality* : </label>
+                        <input type="number" name="camera" id="phone-camera-2" max="200" min="2" placeholder="Camera Quality in MP" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-2">SIM Number* : </label>
+                        <input type="number" name="sim" id="phone-sim-2" min="1000000000" max="9999999999" placeholder="SIM - I number" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-ram-1">RAM* : </label>
+                        <input type="number" name="RAM" id="phone-ram-1" min="2" max="16" placeholder="RAM in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-2-1">SIM - 2 Number : </label>
+                        <input type="number" name="sim-2" id="phone-sim-2-1" min="1000000000" max="9999999999" placeholder="SIM - II number">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Create new smart Phone">
+                    </div>            
+                </form>
+                <form id="smartPhoneDetails">
+                    <h1 class="input-wrapper">Smart Phone Details :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View Details">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Specification</th>
+                                    <th>Details</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="makeVideoCall">
+                    <h1 class="input-wrapper">Make Video Call :-</h1>
+                    <div class="input-wrapper">
+                        <label for="receiver-number-4">Receiver Number* : </label>
+                        <input 
+                            type="number" 
+                            name="receiver-number" 
+                            id="receiver-number-4" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="Number of Reciever" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="call-message-3">Video Call Content* : </label>
+                        <textarea name="message" id="call-message-3" placeholder="Call Message" required></textarea>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="sim-preference">SIM Preference : </label>
+                        <select name="sim-preference" id="sim-preference">
+                            <option value="1">SIM - 1</option>
+                            <option value="2">SIM - 2</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Make Video Call">
+                    </div> 
+                </form>
+                <form id="viewAllVideoCallRecords">
+                    <h1 class="input-wrapper">All Video Call Records :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View All Video Call Records">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>From Number</th>
+                                    <th>To Number</th>
+                                    <th>Video Call Record</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="accessTheInternet">
+                    <h1 class="input-wrapper">Browse the Internet :-</h1>
+                    <div class="input-wrapper">
+                        <label for="search-url">Search URL* : </label>
+                        <input type="text" name="search-url" id="search-url" placeholder="Search URL" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Search Internet">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Search Result</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="changeSim2Number">
+                    <h1 class="input-wrapper">Change SIM - II Number :-</h1>
+                    <div class="input-wrapper">
+                        <label for="new-sim-2-number">New SIM - II Number* : </label>
+                        <input 
+                            type="number" 
+                            name="receiver-number" 
+                            id="new-sim-2-number" 
+                            min="1000000000" 
+                            max="9999999999" 
+                            placeholder="New SIM Number" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Change SIM number">
+                    </div> 
+                </form>
+                <form id="saveDocument">
+                    <h1 class="input-wrapper">Save Document :-</h1>
+                    <div class="input-wrapper">
+                        <label for="document-name">Document Name* : </label>
+                        <input 
+                            type="text" 
+                            name="document-name" 
+                            id="rdocument-name" 
+                            placeholder="Document Name" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="document-content">Document Content* : </label>
+                        <textarea 
+                            name="document-content" 
+                            id="document-content" 
+                            placeholder="Document Content" 
+                            required></textarea>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Save Document">
+                    </div> 
+                </form>
+                <form id="deleteDocument">
+                    <h1 class="input-wrapper">Delete Document :-</h1>
+                    <div class="input-wrapper">
+                        <label for="document-name-select">Document Name* : </label>
+                        <select name="document-name" id="document-name-select" tempId="document-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Delete Document">
+                    </div> 
+                </form>
+                <form id="getDocument">
+                    <h1 class="input-wrapper">Get Document :-</h1>
+                    <div class="input-wrapper">
+                        <label for="document-name-select-2">Document Name* : </label>
+                        <select name="document-name" id="document-name-select-2" tempId="document-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Get Document">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Document Name</th>
+                                    <th>Document Content</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="viewAllDocuments">
+                    <h1 class="input-wrapper">View All Documents :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View All Documents">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Document Name</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="openApp">
+                    <h1 class="input-wrapper">Open App :-</h1>
+                    <div class="input-wrapper">
+                        <label for="app-name-select">App Name* : </label>
+                        <select name="app-name" id="app-name-select" tempId="app-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Open App">
+                    </div> 
+                    <!-- <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th> Name</th>
+                                    <th>Document Content</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                </form>
+                <form id="viewAllApps">
+                    <h1 class="input-wrapper">View All Apps :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View All Apps">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>App Name</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+
+                <!-- ANDROID PHONE FEATURES-->
+                <form id="create-android-phone">
+                    <h1 class="input-wrapper">New Android Phone :-</h1>
+                    <div class="input-wrapper">
+                        <label for="phone-name-3">Name* : </label>
+                        <input type="text" name="name" id="phone-name-3" placeholder="Name of Phone" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-storage-3">Storage Capacity* : </label>
+                        <input type="number" name="storage" id="phone-storage-3" max="1024" min="2" placeholder="Storage capacity in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-battery-2">Battery Capacity* : </label>
+                        <input type="number" name="battery" id="phone-battery-2" min="1000" max="5000" placeholder="Battery capacity in mAh" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-camera-3">Camera Quality* : </label>
+                        <input type="number" name="camera" id="phone-camera-3" max="200" min="2" placeholder="Camera Quality in MP" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-3">SIM Number* : </label>
+                        <input type="number" name="sim" id="phone-sim-3" min="1000000000" max="9999999999" placeholder="SIM - I number" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-ram-2">RAM* : </label>
+                        <input type="number" name="RAM" id="phone-ram-2" min="2" max="16" placeholder="RAM in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-2-2">SIM - 2 Number : </label>
+                        <input type="number" name="sim-2" id="phone-sim-2-2" min="1000000000" max="9999999999" placeholder="SIM - II number">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-extStorage">External Storage : </label>
+                        <input type="number" name="ext-storage" id="phone-extStorage" min="8" max="256" placeholder="External Storage in GB">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Create new Android Phone">
+                    </div>            
+                </form>
+                <form id="androidPhoneDetails">
+                    <h1 class="input-wrapper">Android Phone Details :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View Details">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Specification</th>
+                                    <th>Details</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="changeSecurityPin">
+                    <h1 class="input-wrapper">Change Security Pin:-</h1>
+                    <div class="input-wrapper">
+                        <label for="new-pin">Enter New Pin* : </label>
+                        <input 
+                            type="password" 
+                            name="new-pin" 
+                            id="new-pin" 
+                            placeholder="New Pin Number" 
+                            required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="old-pin">Enter Old Pin : </label>
+                        <input 
+                            type="password" 
+                            name="old-pin" 
+                            id="old-pin" 
+                            placeholder="Old Pin Number">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Change Security Pin">
+                    </div> 
+                </form>
+                <form id="unlockPhone">
+                    <h1 class="input-wrapper">Unlock Phone:-</h1>
+                    <div class="input-wrapper">
+                        <label for="new-pin">Enter Pin* : </label>
+                        <input 
+                            type="password" 
+                            name="sec-pin" 
+                            id="sec-pin" 
+                            placeholder="Pin Number">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Unlock Phone">
+                    </div> 
+                </form>
+                <form id="lockPhone">
+                    <h1 class="input-wrapper">Lock Phone:-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Lock Phone">
+                    </div> 
+                </form>
+                <form id="bluetoothFileTransfer">
+                    <h1 class="input-wrapper">Bluetooth File Transfer :-</h1>
+                    <div class="input-wrapper">
+                        <label for="phone-select">Available Phones* : </label>
+                        <select name="phone" id="phone-select" tempId="phone-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="document-name-select-3">Document Name* : </label>
+                        <select name="document-name" id="document-name-select-3" tempId="document-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Transfer Document">
+                    </div> 
+                </form>
+                <form id="downloadApps">
+                    <h1 class="input-wrapper">Download App :-</h1>
+                    <div class="input-wrapper">
+                        <label for="app-name-select">App Name* : </label>
+                        <select name="app-name" id="app-name-select-3" tempId="app-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Download App">
+                    </div> 
+                </form>
+                <form id="uninstallApps">
+                    <h1 class="input-wrapper">Uninstall App :-</h1>
+                    <div class="input-wrapper">
+                        <label for="app-name-select-4">App Name* : </label>
+                        <select name="app-name" id="app-name-select-4" tempId="app-name-select">
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Uninstall App">
+                    </div> 
+                </form>
+                <form id="uploadDocumentToDrive">
+                    <h1 class="input-wrapper">Upload Document to Drive :-</h1>
+                    <div class="input-wrapper">
+                        <label for="document-name-select-4">Document Name* : </label>
+                        <select name="document-name" id="document-name-select-4" tempId="document-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="drive-select">Drive Providers* : </label>
+                        <select name="drive" id="drive-select" tempId="drive-select" required>
+                            <option value="google">Google</option>
+                            <option value="zoho">Zoho</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Upload Document">
+                    </div> 
+                </form>
+                <form id="downloadDocumentFromDrive">
+                    <div class="input-wrapper">
+                        <label for="drive-select-2">Drive Providers* : </label>
+                        <select name="drive" id="drive-select-2" tempId="drive-select" required>
+                            <option value="google" select>Google</option>
+                            <option value="zoho">Zoho</option>
+                        </select>
+                    </div>
+                    <h1 class="input-wrapper">Download Document from Drive :-</h1>
+                    <div class="input-wrapper">
+                        <label for="document-name-select-5">Document Name* : </label>
+                        <select name="document-name" id="document-name-select-5" tempId="document-name-select" >
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Download Document">
+                    </div> 
+                </form>
+
+                <!-- IPHONE FEATURES-->
+                <form id="create-iphone">
+                    <h1 class="input-wrapper">New IPhone :-</h1>
+                    <div class="input-wrapper">
+                        <label for="phone-name-4">Name* : </label>
+                        <input type="text" name="name" id="phone-name-4" placeholder="Name of Phone" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-storage">Storage Capacity* : </label>
+                        <input type="number" name="storage" id="phone-storage" max="1024" min="2" placeholder="Storage capacity in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-battery-3">Battery Capacity* : </label>
+                        <input type="number" name="battery" id="phone-battery-3" min="1000" max="5000" placeholder="Battery capacity in mAh" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-camera">Camera Quality* : </label>
+                        <input type="number" name="camera" id="phone-camera" max="200" min="2" placeholder="Camera Quality in MP" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-4">SIM Number* : </label>
+                        <input type="number" name="sim" id="phone-sim-4" min="1000000000" max="9999999999" placeholder="SIM - I number" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-ram-3">RAM* : </label>
+                        <input type="number" name="RAM" id="phone-ram-3" min="2" max="16" placeholder="RAM in GB" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="phone-sim-2-3">SIM - 2 Number : </label>
+                        <input type="number" name="sim-2" id="phone-sim-2-3" min="1000000000" max="9999999999" placeholder="SIM - II number">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Create new IPhone">
+                    </div>            
+                </form>
+                <form id="IPhoneDetails">
+                    <h1 class="input-wrapper">IPhone Details :-</h1>
+                    <div class="input-wrapper">
+                        <input type="submit" value="View Details">
+                    </div> 
+                    <div class="input-wrapper">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Specification</th>
+                                    <th>Details</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <form id="airdropTransfer">
+                    <h1 class="input-wrapper">Airdrop File Transfer :-</h1>
+                    <div class="input-wrapper">
+                        <label for="phone-select-2">Available Phones* : </label>
+                        <select name="phone" id="phone-select-2" tempId="phone-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="document-name-select-6">Document Name* : </label>
+                        <select name="document-name" id="document-name-select-6" tempId="document-name-select">
+                            <!-- <option value="null" disabled>--No Selectipn--</option> -->
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="submit" value="Airdrop Document">
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
