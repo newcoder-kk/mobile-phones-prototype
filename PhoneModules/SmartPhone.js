@@ -375,6 +375,7 @@ class SmartPhone extends CellPhone{
             });
 
             console.log(`Video Call made from ${callingNumber === null ? this.getSimNumber() : callingNumber} to ${receiverNumber} with Video content "${content}"`);
+            return `Video Call made from ${callingNumber === null ? this.getSimNumber() : callingNumber} to ${receiverNumber} with Video content "${content}"`;
         }
     }
 
@@ -382,6 +383,9 @@ class SmartPhone extends CellPhone{
         console.log("");
         console.log("Showing all Video call records : ")
         const res = [];
+        if(this.#videoCallRecords.length === 0){
+            throw new Error("No Video call records found");
+        }
         for(let i = this.#videoCallRecords.length - 1; i >= 0; i--){
             console.log(this.#videoCallRecords[i]);
             res.push(this.#videoCallRecords[i]);
