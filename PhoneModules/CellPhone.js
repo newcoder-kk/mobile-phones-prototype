@@ -223,12 +223,12 @@ class CellPhone{
         let receiverPhoneObject = phoneDirectory[receiverNumber];
 
         if(receiverPhoneObject === undefined){
-            console.error("Phone with phone number not found");
-            throw new Error("Phone with phone number not found")
+            console.error("Phone with phone number not found!! \nCheck the Number or Create a New Phone with the Number.");
+            throw new Error("Phone with phone number not found!! \nCheck the Number or Create a New Phone with the Number.")
         }
         else if(receiverPhoneObject === this){
-            console.error("call to self is not possible");
-            throw new Error("call to self is not possible")
+            console.error("Call to self is not possible");
+            throw new Error("Call to self is not possible")
         }
         else if(callingNumber && this.#type === "CELL_PHONE"){
             console.error("Dual SIM feature not supported in cell phone");
@@ -269,8 +269,8 @@ class CellPhone{
     sendTextMessage(receiverNumber, message, callingNumber = null){
         let receiverPhoneObject = phoneDirectory[receiverNumber];
         if(receiverPhoneObject === undefined){
-            console.error("Phone with phone number not found");
-            throw new Error("Phone with phone number not found")
+            console.error("Phone with phone number not found!! \nCheck the Number or Create a New Phone with the Number.");
+            throw new Error("Phone with phone number not found!! \nCheck the Number or Create a New Phone with the Number.")
         }
         else if(receiverPhoneObject === this){
             console.error("Message to self is disallowed");

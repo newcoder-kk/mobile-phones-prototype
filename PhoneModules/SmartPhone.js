@@ -351,8 +351,8 @@ class SmartPhone extends CellPhone{
         }
 
         if(receiverPhoneObject === undefined){
-            console.error("Phone with phone number not found");
-            throw new Error("Phone with phone number not found")
+            console.error("Phone with phone number not found!! \nCheck the Number or Create a New Phone with the Number.");
+            throw new Error("Phone with phone number not found!! \nCheck the Number or Create a New Phone with the Number.")
         }
         else if(receiverPhoneObject === this){
             console.error("Video call to self is not possible");
