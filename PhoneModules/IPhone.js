@@ -169,7 +169,7 @@ class IPhone extends SmartPhone{
         if(driveAccess){
             let document = driveAccess.drive.get(documentName);
             if(document){
-                this.saveDocument(documentName, document);
+                this.saveDocument(documentName, document.content);
                 console.log("Document saved from drive successfully");
                 return "Document saved from drive successfully";
             }
