@@ -137,12 +137,24 @@ function eraseOpenFormTable(){
             }
         }
     })
+}
 
+function eraseOpenFormSelects(){
+    const openForms = document.querySelectorAll(".right-panel form");
+    Array.prototype.forEach.call(openForms, (ele)=>{
+        if(ele.getAttribute("showed") !== null){
+            const selectBody = document.querySelector("#"+ele.getAttribute("id")+" select");
+            if(tableBody !== null){
+                tableBody.innerHTML = "";
+            }
+        }
+    })
 }
 
 function populateInnerDocumentSelect(actionValue){
     const innerSelect = document.querySelector(`#${actionValue} select[tempId="document-name-select"]`);
     let innerHTMLString = "";
+    innerSelect.innerHTML = innerHTMLString;
     // let innerHTMLString = `<option value="null">--No Selectipn--</option>`;
     let currPhone;
     if(typeSelection.value === "cellPhone") currPhone = cellPhoneArray[phoneSelection.value - 1];
@@ -167,6 +179,7 @@ function populateInnerDocumentSelect(actionValue){
 function populateInnerPhoneSelect(actionValue, phoneType){
     const innerSelect = document.querySelector(`#${actionValue} select[tempId="phone-select"]`);
     let innerHTMLString = "";
+    innerSelect.innerHTML = innerHTMLString;
     try{
         if(phoneType === "AndroidPhone"){
             androidPhoneArray.forEach((androidPhone, ind)=>{
@@ -189,6 +202,8 @@ function populateInnerPhoneSelect(actionValue, phoneType){
 function populateInnerAppSelect(actionValue){
     const innerSelect = document.querySelector(`#${actionValue} select[tempId="app-name-select"]`);
     let innerHTMLString = "";
+    innerSelect.innerHTML = innerHTMLString;
+
     // let innerHTMLString = `<option value="null">--No Selectipn--</option>`;
     let currPhone;
     if(typeSelection.value === "cellPhone") currPhone = cellPhoneArray[phoneSelection.value - 1];
@@ -212,6 +227,8 @@ function populateInnerAppSelect(actionValue){
 function populateInternetAppSelect(actionValue, phoneType){
     const innerSelect = document.querySelector(`#${actionValue} select[tempId="app-name-select"]`);
     let innerHTMLString = "";
+    innerSelect.innerHTML = innerHTMLString;
+
     // let innerHTMLString = `<option value="null">--No Selectipn--</option>`;
     if(phoneType === "AndroidPhone"){
         INTERNET.com.google.play.Apps.forEach((key)=>{
@@ -229,6 +246,7 @@ function populateInternetAppSelect(actionValue, phoneType){
 function populateInternetDocumentSelect(actionValue, driveProvider){
     const innerSelect = document.querySelector(`#${actionValue} select[tempId="document-name-select"]`);
     let innerHTMLString = "";
+    innerSelect.innerHTML = innerHTMLString;
 
     INTERNET.com[driveProvider].drive.forEach((key)=>{
         innerHTMLString += `<option value="${key.name}">${key.name}</option>`
@@ -241,9 +259,10 @@ function populatePhoneList(){
     let htmlString = `<option value="no-option" selected>-- no selection --</option>\n<option value="0">New Phone</option>\n`;
     actionSelection.setAttribute('disabled', "")
     phoneSelection.removeAttribute('disabled');
-    const openForms = document.querySelector(".right-panel form");
+    // const openForms = document.querySelector(".right-panel form");
     eraseOpenFormTable();
     closeAllOpenForms();
+    eraseOpenFormSelects();
 
     if(typeValue === 'cellPhone'){
         cellPhoneArray.forEach((obj, ind)=>{
@@ -273,42 +292,6 @@ function populatePhoneList(){
 }
 typeSelection.addEventListener("change", ()=> populatePhoneList());
 
-// typeSelection.addEventListener("change", ()=>{
-//     let typeValue = typeSelection.value;
-//     let htmlString = `<option value="no-option" selected>-- no selection --</option>\n<option value="0">New Phone</option>\n`;
-//     actionSelection.setAttribute('disabled', "")
-//     phoneSelection.removeAttribute('disabled');
-//     const openForms = document.querySelector(".right-panel form");
-//     eraseOpenFormTable();
-//     closeAllOpenForms();
-
-//     if(typeValue === 'cellPhone'){
-//         cellPhoneArray.forEach((obj, ind)=>{
-//             htmlString += `<option value="${ind+1}">${(ind+1)+". "+obj.getPhoneName()}</option>\n`
-//         })
-//     }
-//     else if(typeValue === 'smartPhone'){
-//         smartPhoneArray.forEach((obj, ind)=>{
-//             htmlString += `<option value="${ind+1}">${(ind+1)+". "+obj.getPhoneName()}</option>\n`
-//         })
-//     }
-//     else if(typeValue === 'androidPhone'){
-//         androidPhoneArray.forEach((obj, ind)=>{
-//             htmlString += `<option value="${ind+1}">${(ind+1)+". "+obj.getPhoneName()}</option>\n`
-//         })
-//     }
-//     else if(typeValue === 'iPhone'){
-//         IPhoneArray.forEach((obj, ind)=>{
-//             htmlString += `<option value="${ind+1}">${(ind+1)+". "+obj.getPhoneName()}</option>\n`
-//         })
-//     }
-//     else{
-//         phoneSelection.setAttribute("disabled", "");
-//         actionSelection.setAttribute("disabled", "");
-//     }
-//     phoneSelection.innerHTML = htmlString;
-// })
-
 phoneSelection.addEventListener("change", ()=>{
     let phoneValue = phoneSelection.value;
     let typeValue = typeSelection.value;
@@ -318,6 +301,7 @@ phoneSelection.addEventListener("change", ()=>{
     document.querySelector(".right-panel form").removeAttribute("showed");
     eraseOpenFormTable();
     closeAllOpenForms();
+    eraseOpenFormSelects();
 
     if(phoneValue === '0'){
         htmlString += `<option value="createNewPhone">Create New Phone</option>\n`
@@ -400,6 +384,7 @@ actionSelection.addEventListener("change", ()=>{
     document.querySelector(".right-panel form").removeAttribute("showed");
     eraseOpenFormTable();
     closeAllOpenForms();
+    eraseOpenFormSelects();
 
     if(phoneValue === "0" && actionValue === "createNewPhone"){
         if(typeValue === "cellPhone"){
